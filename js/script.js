@@ -1,4 +1,5 @@
 function getData() {
+  $(".spinner-border").show();
   var htmlContent = "";
   $.post({
     url: "https://cceemocktest.online/user/login",
@@ -18,22 +19,22 @@ function getData() {
                                 <td>${element.email}</td>
                                 <td>${
                                   element.paymentStatus
-                                    ? "true"
-                                    : "false" +
+                                    ? `<span style="color : darkgreen;">true</span>`
+                                    : `<span style="color : red;">false</span>` +
                                       `<button id=${element._id} class="btn btn-primary float-end" onclick="update(this.id)">Make true</button>`
                                 }</td>
                                 <td>${
                                   element.expired
-                                    ? "true"
-                                    : "false" +
-                                      `<button id=${element._id} class="btn btn-primary float-end" onclick="update(this.id)">Make true</button>`
+                                    ? `<span style="color : darkgreen;">true</span>` +
+                                      `<button id=${element._id} class="btn btn-primary float-end" onclick="update(this.id)">Make false</button>`
+                                    : `<span style="color : red;">false</span>`
                                 }</td>
-                                <td>${new Date(
-                                  element.createdAt
-                                ).toDateString()}</td>
-                                <td>${new Date(
-                                  element.updatedAt
-                                ).toDateString()}</td> 
+                                <td>${new Date(element.createdAt)
+                                  .toJSON()
+                                  .slice(0, 10)}</td>
+                                <td>${new Date(element.updatedAt)
+                                  .toJSON()
+                                  .slice(0, 10)}</td> 
                             </tr>`;
             itemsProcessed++;
             if (itemsProcessed === data.allUsers.length) {
@@ -72,6 +73,8 @@ function callback(htmlContent) {
         "</select> results",
     },
   });
+  $("#example").show();
+  $(".spinner-border").hide();
 }
 
 function update(id) {

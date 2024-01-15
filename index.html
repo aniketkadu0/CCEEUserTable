@@ -26,35 +26,53 @@
     />
   </head>
   <body>
-    <main class="cd__main">
-      <button class="btn btn-primary" onclick="getData()">Get data</button>
-      <!-- Start DEMO HTML (Use the following code into your project)-->
-      <table id="example" class="table table-striped" style="width: 100%">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Payment status</th>
-            <th>Expiry</th>
-            <th>Created at</th>
-            <th>Updated at</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-        <tfoot>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Payment status</th>
-            <th>Expiry</th>
-            <th>Created at</th>
-            <th>Updated at</th>
-          </tr>
-        </tfoot>
-      </table>
-      <div id="result"></div>
-      <!-- END EDMO HTML (Happy Coding!)-->
-    </main>
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-primary" onclick="getData()">
+        Get data
+        <div
+          class="spinner-border spinner-border-sm"
+          size="16px"
+          role="status"
+          style="display: none"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </button>
+    </div>
+    <div id="mainContainer">
+      <main class="cd__main">
+        <!-- Start DEMO HTML (Use the following code into your project)-->
+        <table
+          id="example"
+          class="table table-striped"
+          style="width: 100%; display: none"
+        >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Payment status</th>
+              <th>Expiry</th>
+              <th>Created at</th>
+              <th>Updated at</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Payment status</th>
+              <th>Expiry</th>
+              <th>Created at</th>
+              <th>Updated at</th>
+            </tr>
+          </tfoot>
+        </table>
+        <div id="result"></div>
+        <!-- END EDMO HTML (Happy Coding!)-->
+      </main>
+    </div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <!-- Data Table JS -->
