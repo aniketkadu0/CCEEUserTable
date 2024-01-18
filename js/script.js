@@ -2,12 +2,12 @@ function getData() {
   $(".spinner-border").show();
   var htmlContent = "";
   $.post({
-    url: "https://cceemocktest.online/user/login",
+    url: "https://ccee.cloud/user/login",
     data: { email: "aniketkadu765@gmail.com", password: "Aniket1996@" },
     success: (data) => {
       var AuthToken = data.authtoken;
       $.get({
-        url: "https://red-violet-sockeye-fez.cyclic.app/user/",
+        url: "https://ccee.cloud/user/",
         headers: { Authorization: AuthToken },
         success: (data) => {
           var itemsProcessed = 0;
@@ -79,7 +79,7 @@ function callback(htmlContent) {
 
 function update(id) {
   $.post({
-    url: `https://red-violet-sockeye-fez.cyclic.app/user/paymentstatusupdate/${id}`,
+    url: `https://ccee.cloud/user/paymentstatusupdate/${id}`,
     success: (data) => {
       $("#result").text(data.message);
     },
